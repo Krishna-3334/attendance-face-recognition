@@ -28,4 +28,7 @@ logs
 *.log
 
 # Public models (keep if you want in repo) - if large, consider removing
-# public/models/
+public/models/
+
+# Use Git LFS instead for large model files if desired
+.gitattributes
