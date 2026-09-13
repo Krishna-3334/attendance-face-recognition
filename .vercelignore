@@ -1,0 +1,9 @@
+# Vercel builds the Vite frontend only. Without this, Vercel's Python detection
+# finds backend/requirements.txt and tries to bundle the recognition service as
+# a serverless function, which fails at 709 MB against the 500 MB limit.
+# The backend is deployed separately; see deploy/hf-space/.
+backend/
+deploy/
+.venv/
+__pycache__/
+*.py[cod]
