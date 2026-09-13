@@ -1,0 +1,14 @@
+# Verified against: insightface 2.0, onnxruntime 1.25, numpy 2.4, opencv 4.13,
+# fastapi 0.141, pydantic 2.13, Python 3.11.
+fastapi>=0.115
+uvicorn[standard]>=0.32
+python-multipart>=0.0.18
+insightface>=0.7.3
+onnxruntime>=1.18
+opencv-python-headless>=4.9
+numpy>=1.26
+pydantic>=2.9
+
+# Evaluation only (eval/evaluate.py plots, eval/fetch_lfw.py dataset fetch)
+matplotlib>=3.8
+scikit-learn>=1.4

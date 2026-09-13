@@ -12,6 +12,20 @@ package-lock.json
 # Vite
 .vite
 
+# Python
+backend/.venv/
+__pycache__/
+*.py[cod]
+
+# Model weights (fetched by backend/scripts/download_models.py)
+backend/models/*.onnx
+public/models/
+
+# Runtime data and evaluation output
+backend/data/
+backend/eval/reports/
+backend/tests/fixtures/
+
 # macOS
 .DS_Store
 
@@ -26,9 +40,3 @@ package-lock.json
 # Logs
 logs
 *.log
-
-# Public models (keep if you want in repo) - if large, consider removing
-public/models/
-
-# Use Git LFS instead for large model files if desired
-.gitattributes
