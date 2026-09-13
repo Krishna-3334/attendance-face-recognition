@@ -5,7 +5,32 @@
 // which is why the gallery can live in a database and the matching threshold can
 // be an evaluated operating point rather than a hardcoded default.
 
-const BASE = import.meta.env.VITE_API_BASE ?? 'http://127.0.0.1:8000'
+function resolveBase() {
+  const fallback = import.meta.env.VITE_API_BASE ?? 'http://127.0.0.1:8000'
+  if (typeof window === 'undefined') return fallback
+
+  const fromQuery = new URLSearchParams(window.location.search).get('api')
+  if (fromQuery) {
+    try {
+      const url = new URL(fromQuery)
+      if (url.protocol === 'https:' || url.protocol === 'http:') {
+        try { window.localStorage.setItem('bioaccess-api-base', url.origin) } catch {}
+        return url.origin
+      }
+    } catch {}
+  }
+
+  try {
+    const remembered = window.localStorage.getItem('bioaccess-api-base')
+    if (remembered) return remembered
+  } catch {}
+
+  return fallback
+}
+
+const BASE = resolveBase().replace(/\/$/, '')
+
+export const API_BASE = BASE
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE}${path}`, options)
