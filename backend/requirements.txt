@@ -9,6 +9,5 @@ opencv-python-headless>=4.9
 numpy>=1.26
 pydantic>=2.9
 
-# Evaluation only (eval/evaluate.py plots, eval/fetch_lfw.py dataset fetch)
-matplotlib>=3.8
-scikit-learn>=1.4
+# Evaluation extras live in requirements-eval.txt so the deployed image does
+# not carry matplotlib and scikit-learn.

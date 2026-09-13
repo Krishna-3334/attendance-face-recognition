@@ -1,0 +1,4 @@
+# Needed only to run eval/evaluate.py and eval/fetch_lfw.py.
+#   pip install -r requirements.txt -r requirements-eval.txt
+matplotlib>=3.8
+scikit-learn>=1.4
